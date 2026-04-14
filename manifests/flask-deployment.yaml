@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextwork-flask-backend
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nextwork-flask-backend
+  template:
+    metadata:
+      labels:
+        app: nextwork-flask-backend
+    spec:
+      containers:
+        - name: nextwork-flask-backend
+          image: sha256:b05b737abaf9c01857ccb153579906f67d294dfde6af98c09a9b23ea8452dded
+          ports:
+            - containerPort: 8080
